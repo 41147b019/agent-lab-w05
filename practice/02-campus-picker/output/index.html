@@ -92,7 +92,7 @@
       </div>
       <div class="result-area" aria-live="polite" aria-atomic="true">
         <p class="status" id="noResult" hidden data-i18n="noResult">沒有符合條件的活動</p>
-        <article class="result-card" id="resultCard" hidden>
+        <article class="result-card" id="resultCard" role="region" aria-labelledby="resultName" tabindex="-1" hidden>
           <p class="result-label" data-i18n="pickedLabel">本次抽選</p>
           <h2 id="resultName"></h2>
           <div class="details" id="resultDetails"></div>
@@ -243,6 +243,7 @@
       historyIds = [picked.id, ...historyIds].slice(0, 5);
       renderResult();
       renderHistory();
+      resultCard.focus();
     });
     for (const select of [locationSelect, timeSelect, energySelect]) {
       select.addEventListener('change', clearResult);
